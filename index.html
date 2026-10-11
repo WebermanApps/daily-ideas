@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>Daily Ideas</title>
+<link href="https://fonts.googleapis.com/css2?family=Khand:wght@600;700&family=Hind:wght@400;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="brand-tokens.css">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fff;color:var(--mw-foreground);font-family:var(--mw-font-body)}
+main{max-width:520px;margin:0 auto;padding:16px 16px 140px}
+h1,h2,h3{font-family:var(--mw-font-heading);font-weight:700;line-height:1.1;margin:0}h1{font-size:2.2rem}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+select,button,textarea{font:inherit}select{min-height:44px;border:1px solid var(--mw-border);border-radius:8px;padding:0 8px;background:#fff}
+.card{border:1px solid var(--mw-border);border-radius:16px;padding:18px;margin-top:14px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+.meta{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mw-muted-text)}h2{font-size:1.7rem;margin:6px 0}
+.viz{background:var(--mw-secondary);border-radius:12px;padding:12px;margin:10px 0;font-size:.95rem}.viz li{margin:6px 0}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:8px}.ba div{background:#fff;border:1px solid var(--mw-border);border-radius:10px;padding:10px}
+.btn{min-height:44px;border:2px solid var(--mw-primary);background:#fff;padding:0 12px;text-transform:uppercase;letter-spacing:.08em;font-weight:600;font-size:.8rem;cursor:pointer;border-radius:0;color:var(--mw-foreground)}
+.btn.on{background:var(--mw-primary);color:#fafafa}.votes{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:12px}
+.v-no{border-color:#a3a3a3;color:#525252}.v-love{color:#c81e1e}.v-yes{color:#15803d;border-color:#15803d}.v-love.on{background:#c81e1e;color:#fff;border-color:#c81e1e}.v-yes.on{background:#15803d;color:#fff}
+.link{background:none;border:0;padding:8px 0;min-height:44px;text-decoration:underline;cursor:pointer;color:var(--mw-foreground)}
+textarea{width:100%;min-height:70px;border:1px solid var(--mw-border);border-radius:8px;padding:8px;margin-top:6px}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:12px}.dots span{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--mw-border);margin:0 3px}.dots .on{background:var(--mw-primary)}
+.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--mw-border);padding:10px 16px;display:flex;justify-content:center}.bar .btn{width:100%;max-width:520px}
+footer{text-align:center;font-size:.8rem;margin-top:28px}footer a{color:var(--mw-muted-text);display:inline-block}
+a{color:inherit}
+</style></head><body><main>
+<div class="top"><h1>Daily Ideas</h1><select id="day" aria-label="Pick A Day"></select></div>
+<p class="meta">From Vision · Swipe or use the arrows</p>
+<div id="slot"></div>
+<div class="nav"><button class="btn mw-hover" id="prev">← Prev</button><div class="dots" id="dots"></div><button class="btn mw-hover" id="next">Next →</button></div>
+<footer><a class="mw-hover" href="https://maxweberman.com">Built by Max Weberman</a></footer>
+</main><div class="bar"><button class="btn mw-hover" id="share">Share My Votes</button></div>
+<script>
+let days=[],d=0,i=0,open=false;const K='dailyIdeasVotes';const S=()=>JSON.parse(localStorage.getItem(K)||'{}');const W=o=>localStorage.setItem(K,JSON.stringify(o));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function viz(x){if(x.format==='mockup')return`<div class="viz"><b>Mockup</b><ol>${x.mockup.map(m=>`<li>${esc(m)}</li>`).join('')}</ol></div>`;
+if(x.format==='steps')return`<div class="viz"><b>Walkthrough</b><ol>${x.steps.map(m=>`<li>${esc(m)}</li>`).join('')}</ol></div>`;
+if(x.format==='beforeafter')return`<div class="viz ba"><div><b>Before</b><br>${esc(x.before)}</div><div><b>After</b><br>${esc(x.after)}</div></div>`;return''}
+function render(){const ideas=days[d].ideas,x=ideas[i],v=S()[x.id]||{};
+slot.innerHTML=`<article class="card mw-hover"><div class="meta">${esc(x.app)} · Effort ${x.effort} · ${esc(x.owner)}${v.note?' · ✎ Note':''}</div><h2>${esc(x.title)}</h2>${viz(x)}
+<button class="link" id="more">${open?'Hide Details':'Show Details'}</button>${open?`<p>${esc(x.why)}</p><p class="meta">Source: <a href="${esc(x.source.url)}" target="_blank" rel="noopener">${esc(x.source.title)}</a></p>`:''}
+<div class="votes">${['No','Maybe','Love','Yes'].map(a=>`<button class="btn mw-hover v-${a.toLowerCase()} ${v.answer===a?'on':''}" data-a="${a}">${a==='Love'?'♥ ':''}${a}</button>`).join('')}</div>
+<details ${v.note?'open':''}><summary class="link">Add Note</summary><textarea id="note" placeholder="Private note (saved on this device)">${esc(v.note||'')}</textarea></details></article>`;
+dots.innerHTML=ideas.map((_,k)=>`<span class="${k===i?'on':''}"></span>`).join('');
+more.onclick=()=>{open=!open;render()};slot.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>save({answer:b.dataset.a}));
+note.onchange=e=>save({note:e.target.value})}
+function save(p){const o=S(),x=days[d].ideas[i];o[x.id]={...o[x.id],...p,title:x.title,time:new Date().toISOString()};W(o);render()}
+function go(n){const L=days[d].ideas.length;i=(i+n+L)%L;open=false;render()}
+prev.onclick=()=>go(-1);next.onclick=()=>go(1);
+let sx=0;slot.addEventListener('touchstart',e=>sx=e.touches[0].clientX);slot.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>60){save({answer:dx<0?'No':'Yes'});go(1)}});
+share.onclick=async()=>{const o=S(),lines=days[d].ideas.map(x=>{const v=o[x.id];return v&&(v.answer||v.note)?`${x.title}: ${v.answer||'-'}${v.note?' ('+v.note+')':''}`:null}).filter(Boolean);
+const text=`Daily Ideas ${days[d].date}\n`+(lines.join('\n')||'No votes yet'),url=location.href;
+if(navigator.share){try{await navigator.share({title:'Daily Ideas',text,url});return}catch(e){if(e.name==='AbortError')return}}
+if(/iPhone|Android/i.test(navigator.userAgent)){location.href='sms:?&body='+encodeURIComponent(text+'\n'+url);return}
+try{await navigator.clipboard.writeText(text+'\n'+url);share.textContent='Copied';setTimeout(()=>share.textContent='Share My Votes',1500)}catch(e){}};
+fetch('ideas.json').then(r=>r.json()).then(j=>{days=j.sort((a,b)=>b.date.localeCompare(a.date));day.innerHTML=days.map((x,k)=>`<option value="${k}">${x.date}</option>`).join('');day.onchange=()=>{d=+day.value;i=0;render()};render()});
+</script></body></html>
