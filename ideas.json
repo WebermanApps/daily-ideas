@@ -1,7 +1,184 @@
-[{"date":"2026-10-11","ideas":[
-{"id":"2026-10-11-1","date":"2026-10-11","title":"Show Only The Next Five Tasks","app":"Home Record","format":"mockup","why":"HouseSpouse's Home screen shows the next task plus a few coming up, five at most, with one-tap Done, Snooze, or Reschedule, so members feel ahead instead of buried.","effort":"M","owner":"Construction","mockup":["Change HVAC filter · Done / Snooze","Test smoke alarms","Clean gutters","Check weather stripping","Flush water heater"],"source":{"title":"HouseSpouse: Home Maintenance App","url":"https://housespouse.app/"}},
-{"id":"2026-10-11-2","date":"2026-10-11","title":"Seasonal HVAC Tune-Up Reminders","app":"Niko Home Guide","format":"steps","why":"ENERGY STAR advises a cooling check-up in spring and a heating check-up in fall, timed around the clock changes, and checking the air filter monthly (change at least every three months).","effort":"S","owner":"Construction","steps":["Spring: book the cooling check-up","Every month: check the air filter","Every 3 months at most: change the filter","Fall: book the heating check-up"],"source":{"title":"ENERGY STAR: Maintenance Checklist","url":"https://www.energystar.gov/saveathome/heating-cooling/maintenance-checklist"}},
-{"id":"2026-10-11-3","date":"2026-10-11","title":"Free Tier Plus Shareable Schedule","app":"Home Record","format":"beforeafter","why":"SeasonKeep offers one home free with no card, then a paid plan adding history, cost tracking, a shareable read-only schedule, and CSV export. A similar ladder could lower the barrier to a Home Record membership.","effort":"L","owner":"Construction","before":"Paid membership is the only way in","after":"Free starter schedule; paid adds history, sharing, export","source":{"title":"SeasonKeep: Home Maintenance App","url":"https://www.seasonkeep.com/"}},
-{"id":"2026-10-11-4","date":"2026-10-11","title":"Summary First, Details On Tap","app":"Brief App","format":"beforeafter","why":"NN/g's progressive disclosure guidance: show the most important options first and reveal specialized ones on request, which improves learnability, efficiency, and error rate.","effort":"S","owner":"Blueprint","before":"Every brief shows full text at once","after":"One-line summary per tile; tap to expand","source":{"title":"NN/g: Progressive Disclosure","url":"https://www.nngroup.com/articles/progressive-disclosure/"}},
-{"id":"2026-10-11-5","date":"2026-10-11","title":"Native Share Sheet For Results","app":"Blueprint Swipe","format":"card","why":"The Web Share API lets web apps open the phone's own share sheet for text and links; it needs a user tap and HTTPS, and support varies, so feature-detect and keep a fallback.","effort":"S","owner":"Blueprint","source":{"title":"web.dev: Web Share API","url":"https://web.dev/articles/web-share"}}
-]}]
+[
+ {
+  "date": "2026-10-12",
+  "ideas": [
+   {
+    "id": "2026-10-12-1",
+    "date": "2026-10-12",
+    "title": "Install Prompt Right After Sign-In",
+    "app": "Niko Home Guide",
+    "format": "beforeafter",
+    "why": "GoatCounter shows 13 Home Guide sign-ins but only 1 open of the add-to-home-screen option. web.dev says sign-in flows are a good, low-disruption place for an install promotion, as long as it's dismissible and remembered. Edits would go to preview.html first, live only after Max approves.",
+    "effort": "S",
+    "owner": "Construction",
+    "before": "Add-to-home-screen option is easy to miss (1 open vs 13 sign-ins)",
+    "after": "Small, dismissible 'Keep this guide on your phone' card just below sign-in",
+    "source": {
+     "title": "web.dev: Patterns for Promoting PWA Installation",
+     "url": "https://web.dev/articles/promote-install"
+    }
+   },
+   {
+    "id": "2026-10-12-2",
+    "date": "2026-10-12",
+    "title": "Shutoffs and Emergency Info That Work Offline",
+    "app": "Niko Home Guide",
+    "format": "steps",
+    "why": "Shutoffs and Emergency pages already get views, and those are exactly what a homeowner needs when power or internet is out. The published repo has a web manifest but no service worker; the offline cookbook shows how to cache key pages on install so they open with no connection.",
+    "effort": "M",
+    "owner": "Construction",
+    "steps": [
+     "Add a service worker to the guide",
+     "Cache Shutoffs, Emergency, and Call pages on install",
+     "Serve from cache, falling back to network",
+     "Test in airplane mode on a phone"
+    ],
+    "source": {
+     "title": "web.dev: Common Techniques to Build Offline Applications",
+     "url": "https://web.dev/articles/offline-cookbook"
+    }
+   },
+   {
+    "id": "2026-10-12-3",
+    "date": "2026-10-12",
+    "title": "Automatic Recall Check for Home Appliances",
+    "app": "Home Record / Smart Upkeep",
+    "format": "card",
+    "why": "HomeAlmanac checks a homeowner's appliances against published safety recalls and flags any match. The US CPSC offers a free public Recalls API (JSON or XML) searchable by product name, so a membership app could check each logged appliance and alert the member, which is a clear, tangible perk for US homes.",
+    "effort": "M",
+    "owner": "Up Keep",
+    "source": {
+     "title": "CPSC: Recalls API Information",
+     "url": "https://www.cpsc.gov/Recalls/CPSC-Recalls-Application-Program-Interface-API-Information"
+    }
+   },
+   {
+    "id": "2026-10-12-4",
+    "date": "2026-10-12",
+    "title": "Snap the Label, Skip the Typing",
+    "app": "Home Record / Smart Upkeep",
+    "format": "mockup",
+    "why": "Homer, HomeMemory, eeva, and HomeAlmanac all let owners photograph an appliance nameplate and have the app read model and serial, then attach the manual and warranty. The planned quote app already takes model/serial photos, so auto-reading them would be the next step and is now table stakes among competitors.",
+    "effort": "L",
+    "owner": "Up Keep",
+    "mockup": [
+     "Point camera at water heater label",
+     "Read: make, model, serial",
+     "Confirm or fix any field",
+     "Manual and warranty attached",
+     "Maintenance reminders added"
+    ],
+    "source": {
+     "title": "Homer: Home Inventory App",
+     "url": "https://homer.co/features/inventory"
+    }
+   },
+   {
+    "id": "2026-10-12-5",
+    "date": "2026-10-12",
+    "title": "Send Maintenance Tasks to My Calendar",
+    "app": "Home Record / Smart Upkeep",
+    "format": "card",
+    "why": "eeva syncs renewals, tasks, and maintenance to Google, iCloud, or Outlook calendars. Putting reminders where members already look could raise follow-through without building a notification system first.",
+    "effort": "S",
+    "owner": "Up Keep",
+    "source": {
+     "title": "eeva: Your Home's Specialist",
+     "url": "https://eeva.ai/"
+    }
+   }
+  ]
+ },
+ {
+  "date": "2026-10-11",
+  "ideas": [
+   {
+    "id": "2026-10-11-1",
+    "date": "2026-10-11",
+    "title": "Show Only The Next Five Tasks",
+    "app": "Home Record",
+    "format": "mockup",
+    "why": "HouseSpouse's Home screen shows the next task plus a few coming up, five at most, with one-tap Done, Snooze, or Reschedule, so members feel ahead instead of buried.",
+    "effort": "M",
+    "owner": "Construction",
+    "mockup": [
+     "Change HVAC filter · Done / Snooze",
+     "Test smoke alarms",
+     "Clean gutters",
+     "Check weather stripping",
+     "Flush water heater"
+    ],
+    "source": {
+     "title": "HouseSpouse: Home Maintenance App",
+     "url": "https://housespouse.app/"
+    }
+   },
+   {
+    "id": "2026-10-11-2",
+    "date": "2026-10-11",
+    "title": "Seasonal HVAC Tune-Up Reminders",
+    "app": "Niko Home Guide",
+    "format": "steps",
+    "why": "ENERGY STAR advises a cooling check-up in spring and a heating check-up in fall, timed around the clock changes, and checking the air filter monthly (change at least every three months).",
+    "effort": "S",
+    "owner": "Construction",
+    "steps": [
+     "Spring: book the cooling check-up",
+     "Every month: check the air filter",
+     "Every 3 months at most: change the filter",
+     "Fall: book the heating check-up"
+    ],
+    "source": {
+     "title": "ENERGY STAR: Maintenance Checklist",
+     "url": "https://www.energystar.gov/saveathome/heating-cooling/maintenance-checklist"
+    }
+   },
+   {
+    "id": "2026-10-11-3",
+    "date": "2026-10-11",
+    "title": "Free Tier Plus Shareable Schedule",
+    "app": "Home Record",
+    "format": "beforeafter",
+    "why": "SeasonKeep offers one home free with no card, then a paid plan adding history, cost tracking, a shareable read-only schedule, and CSV export. A similar ladder could lower the barrier to a Home Record membership.",
+    "effort": "L",
+    "owner": "Construction",
+    "before": "Paid membership is the only way in",
+    "after": "Free starter schedule; paid adds history, sharing, export",
+    "source": {
+     "title": "SeasonKeep: Home Maintenance App",
+     "url": "https://www.seasonkeep.com/"
+    }
+   },
+   {
+    "id": "2026-10-11-4",
+    "date": "2026-10-11",
+    "title": "Summary First, Details On Tap",
+    "app": "Brief App",
+    "format": "beforeafter",
+    "why": "NN/g's progressive disclosure guidance: show the most important options first and reveal specialized ones on request, which improves learnability, efficiency, and error rate.",
+    "effort": "S",
+    "owner": "Blueprint",
+    "before": "Every brief shows full text at once",
+    "after": "One-line summary per tile; tap to expand",
+    "source": {
+     "title": "NN/g: Progressive Disclosure",
+     "url": "https://www.nngroup.com/articles/progressive-disclosure/"
+    }
+   },
+   {
+    "id": "2026-10-11-5",
+    "date": "2026-10-11",
+    "title": "Native Share Sheet For Results",
+    "app": "Blueprint Swipe",
+    "format": "card",
+    "why": "The Web Share API lets web apps open the phone's own share sheet for text and links; it needs a user tap and HTTPS, and support varies, so feature-detect and keep a fallback.",
+    "effort": "S",
+    "owner": "Blueprint",
+    "source": {
+     "title": "web.dev: Web Share API",
+     "url": "https://web.dev/articles/web-share"
+    }
+   }
+  ]
+ }
+]
