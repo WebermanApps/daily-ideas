@@ -1,5 +1,196 @@
 [
  {
+  "date": "2026-10-12-upkeep",
+  "label": "Smart Upkeep Deep Dive",
+  "ideas": [
+   {
+    "id": "2026-10-12-upkeep-1",
+    "date": "2026-10-12-upkeep",
+    "title": "Same Named Tech Every Visit",
+    "app": "Smart Upkeep · Service",
+    "format": "beforeafter",
+    "why": "Honey Homes sells its membership on one dedicated handyman who learns your home and comes back each visit. For the 48322 friends-and-family beta, a named tech is the cheapest retention and trust lever (estimate: no extra cost while volume is under one tech's capacity). Impact: High (retention, trust).",
+    "effort": "M",
+    "owner": "Up Keep",
+    "source": {
+     "title": "Honey Homes: A Dedicated Handyman",
+     "url": "https://www.honeyhomes.com/handyman"
+    },
+    "before": "Any available tech, introduced on arrival",
+    "after": "'Your tech: Dana' card with photo; same person every visit, backup named too"
+   },
+   {
+    "id": "2026-10-12-upkeep-2",
+    "date": "2026-10-12-upkeep",
+    "title": "Partner Vetting Checklist Before Any Sub Works",
+    "app": "Smart Upkeep · Service",
+    "format": "steps",
+    "why": "Michigan's workers' comp agency says a general contractor should require a WC certificate or exclusion from subs, or the sub's injured employee's claim can become the contractor's responsibility. This is the concrete answer to 'how to source and subcontract techs' for HVAC and anything over the $600 M&A line. Impact: High (legal risk).",
+    "effort": "S",
+    "owner": "Up Keep (with US operator's lawyer)",
+    "source": {
+     "title": "Michigan WDCA: Employer Insurance Requirement",
+     "url": "https://www.michigan.gov/leo/-/media/Project/Websites/leo/Documents/WDCA-RESOURCES-AND-REPORTS/Publications/wca_WCPUB002.pdf"
+    },
+    "steps": [
+     "Check license status on LARA (M&A, Mechanical, Plumbing, Electrical)",
+     "Collect a current workers' comp certificate or a filed WC-337 exclusion",
+     "Collect general liability and auto certificates, naming the operator as additional insured",
+     "Re-check every expiry date monthly; block scheduling if anything lapses"
+    ]
+   },
+   {
+    "id": "2026-10-12-upkeep-3",
+    "date": "2026-10-12-upkeep",
+    "title": "Michigan 3-Day Cancel Notice for In-Home Sign-Ups",
+    "app": "Smart Upkeep · Service",
+    "format": "beforeafter",
+    "why": "Michigan's Home Solicitation Sales Act lets buyers cancel within 3 business days when the sale is made at their home (over $25), and requires a specific bold notice next to the signature. Beta members will often sign during the first walkthrough visit, so the agreement needs it. For the lawyer review already on the list. Impact: High (compliance).",
+    "effort": "S",
+    "owner": "Up Keep (lawyer to confirm)",
+    "source": {
+     "title": "MCL 445.113: Home Solicitation Sales Notice",
+     "url": "https://legislature.mi.gov/Laws/MCL?objectName=MCL-445-113"
+    },
+    "before": "Draft refund policy only",
+    "after": "Signature step shows the statutory 3-business-day cancel line in bold, plus a dated cancel form emailed with the agreement"
+   },
+   {
+    "id": "2026-10-12-upkeep-4",
+    "date": "2026-10-12-upkeep",
+    "title": "Builder and Closing Handoff Channel",
+    "app": "Smart Upkeep · Service",
+    "format": "steps",
+    "why": "Digs raised $25.3M (Aug 2026) led by Builders FirstSource to carry a home's digital record from construction into post-move-in maintenance and warranty care. Builders want a homeowner handoff; for SmartKeep it is a path to the first 100 homes and to US LOIs before Nov 8. Impact: High (acquisition).",
+    "effort": "M",
+    "owner": "Up Keep",
+    "source": {
+     "title": "GeekWire: Digs Raises $25.3M",
+     "url": "https://www.geekwire.com/2026/homebuilding-ai-startup-digs-raises-25-3m-and-partners-with-building-products-giant/"
+    },
+    "steps": [
+     "List 5 metro Detroit custom builders and 5 listing agents in 48322",
+     "Offer a gifted first visit plus a set-up Home Record at closing",
+     "Builder's warranty items load into the record",
+     "Track how many gifts convert to paid tiers (estimate goal: 1 in 4)"
+    ]
+   },
+   {
+    "id": "2026-10-12-upkeep-5",
+    "date": "2026-10-12-upkeep",
+    "title": "Maintenance Proof Pack for Warranty Claims",
+    "app": "Smart Upkeep · Service",
+    "format": "mockup",
+    "why": "The FTC warns home warranty claims are often denied over exclusions and missing maintenance. A one-tap dated, photo-backed service history per appliance makes the membership pay for itself when a claim happens, a trust message warranties can't offer. Impact: Medium (trust, retention).",
+    "effort": "S",
+    "owner": "Up Keep",
+    "source": {
+     "title": "FTC: What's the Deal With Home Warranties?",
+     "url": "https://consumer.ftc.gov/consumer-alerts/2023/02/so-whats-deal-home-warranties"
+    },
+    "mockup": [
+     "Water Heater · Rheem",
+     "Flushed: Mar 3, Sep 8 (photos)",
+     "Anode checked: Sep 8",
+     "Download Proof Pack (PDF)",
+     "Send to warranty company"
+    ]
+   },
+   {
+    "id": "2026-10-12-upkeep-6",
+    "date": "2026-10-12-upkeep",
+    "title": "Annual Background Re-Check, Shown to Members",
+    "app": "Smart Upkeep · Service",
+    "format": "card",
+    "why": "Thumbtack runs a criminal background check on every new pro through an accredited third party and re-checks annually. Monthly Platinum visits put someone in the home 12 times a year; stating the check and its date is a simple trust signal for 3,500–5,000 sq ft homes. Impact: Medium (trust).",
+    "effort": "S",
+    "owner": "Up Keep",
+    "source": {
+     "title": "Thumbtack: Safety",
+     "url": "https://www.thumbtack.com/safety"
+    }
+   },
+   {
+    "id": "2026-10-12-upkeep-7",
+    "date": "2026-10-12-upkeep",
+    "title": "Tap to Verify the License",
+    "app": "Smart Upkeep · App",
+    "format": "mockup",
+    "why": "Michigan's LARA lookup shows status and expiry for mechanical, plumbing, electrical and M&A licenses, updated daily. Tagging each task Member Tech vs Licensed Sub and linking the live license turns the licensing problem into a visible trust feature. Impact: High (trust, licensing).",
+    "effort": "S",
+    "owner": "Up Keep",
+    "source": {
+     "title": "Michigan LARA: Licensee Search",
+     "url": "https://aca-prod.accela.com/MILARA/GeneralProperty/PropertyLookUp.aspx?searchtype=Contractor"
+    },
+    "mockup": [
+     "Furnace Tune-Up · Thu 10 AM",
+     "Done by: ABC Mechanical",
+     "Mechanical Contractor · Active",
+     "Verify on Michigan LARA ↗",
+     "Member Tech tasks: filter, alarms"
+    ]
+   },
+   {
+    "id": "2026-10-12-upkeep-8",
+    "date": "2026-10-12-upkeep",
+    "title": "Failed Card Recovery From Day One",
+    "app": "Smart Upkeep · App",
+    "format": "steps",
+    "why": "Stripe's revenue recovery tools retry failed subscription payments and email customers with no code. Stripe cites about 55% recovery on average; an independent B2C audit reports 25–35%. Either way, monthly billing without dunning quietly loses members. Fits the Stripe setup already on the open list. Impact: Medium (retention).",
+    "effort": "S",
+    "owner": "Up Keep",
+    "source": {
+     "title": "Stripe Docs: Smart Retries",
+     "url": "https://docs.stripe.com/billing/revenue-recovery/smart-retries"
+    },
+    "steps": [
+     "Turn on Stripe Smart Retries (default 8 tries in 2 weeks)",
+     "Send card-expiring and payment-failed emails with a hosted update link",
+     "Pause scheduling, don't cancel, while a payment is in recovery",
+     "Watch the Recovery Rate chart monthly"
+    ]
+   },
+   {
+    "id": "2026-10-12-upkeep-9",
+    "date": "2026-10-12-upkeep",
+    "title": "Renewal Rate Tracker Against the 80% Bar",
+    "app": "Smart Upkeep · App",
+    "format": "mockup",
+    "why": "Frontdoor, the largest US home warranty company, reported 79.2% customer retention for 2025. An internal operator view of upcoming renewals, skipped visits and at-risk members gives the SMART-S file real retention data and catches churn early. Internal only, no client data in marketing. Impact: Medium (retention, evidence).",
+    "effort": "M",
+    "owner": "Up Keep",
+    "source": {
+     "title": "Frontdoor Full-Year 2025 Results",
+     "url": "https://www.businesswire.com/news/home/20260226042868/en/Frontdoor-Announces-Record-Full-Year-2025-Financial-Results"
+    },
+    "mockup": [
+     "Members: 24",
+     "Renewing next 60 days: 6",
+     "Renewal rate: — (first year)",
+     "Benchmark: Frontdoor 79.2%",
+     "At-risk: skipped 2 visits"
+    ]
+   },
+   {
+    "id": "2026-10-12-upkeep-10",
+    "date": "2026-10-12-upkeep",
+    "title": "Hand the Home Record to the Next Owner",
+    "app": "Smart Upkeep · App",
+    "format": "beforeafter",
+    "why": "Digs pitches a home record that 'lives on well past the construction phase' and logs materials and appliance warranties for life. A transfer at sale is a selling point to members (a documented-care home) and a warm lead for the buyer. Impact: Medium (acquisition, retention).",
+    "effort": "M",
+    "owner": "Up Keep",
+    "source": {
+     "title": "FinSMEs: Digs Raises $25.3M Series A",
+     "url": "https://www.finsmes.com/2026/08/digs-raises-25-3m-in-series-a-funding.html"
+    },
+    "before": "Record ends when a member moves",
+    "after": "'Transfer to Buyer' sends the full visit history and warranties; buyer gets an offer to keep the plan"
+   }
+  ]
+ },
+ {
   "date": "2026-10-12",
   "ideas": [
    {
