@@ -1,5 +1,83 @@
 [
  {
+  "date": "2026-10-13",
+  "ideas": [
+   {
+    "id": "2026-10-13-1",
+    "date": "2026-10-13",
+    "title": "QR Stickers That Open the Right Page of the Home Guide",
+    "app": "Niko Home Guide",
+    "format": "mockup",
+    "why": "Home-record apps like Equipment Tracker, JustTaggit and Essentify put a QR sticker on the water heater, furnace or panel so anyone can scan it with a phone camera, no app needed, and land on that unit's page (model, manual, service history). The Home Guide is already the most-used app (20 sign-ins, 13 Home section opens, 6 Who to Call, 5 Warranty, 3 Shutoffs in the last usage pull), but the guide has no per-section links yet, so a sticker can only open the front door. Giving each section its own link and printing 5 to 8 stickers for Niko's mechanical room would put the answer on the equipment itself. Sign-in stays as is, so no private info is exposed.",
+    "effort": "S",
+    "owner": "Construction",
+    "source": {
+     "title": "Equipment Tracker: QR Tags on Your Equipment",
+     "url": "https://equipment-tracker.com/homeowners"
+    },
+    "mockup": [
+     "Sticker on water heater: 'Scan for manual, warranty and shutoff'",
+     "Phone camera opens homes.maxweberman.com/#water-heater",
+     "After sign-in: Water Heater card with model, warranty end date, flush steps, who to call",
+     "Same pattern for the furnace, electrical panel, main water shutoff and other mechanical-room equipment"
+    ]
+   },
+   {
+    "id": "2026-10-13-2",
+    "date": "2026-10-13",
+    "title": "Talk Instead of Type at Each Stop",
+    "app": "Site Walk",
+    "format": "beforeafter",
+    "why": "CompanyCam's Quick Caption lets crews tap a mic after a photo and say what it shows; its Walkthrough Note turns spoken notes plus photos into an editable document, and CompanyCam pitches it as safer than typing on site. Site Walk asks the walker to label photos and write notes at 7 stops, and the last usage pull shows Stop 1 started 8 times but only 1 finished walk, so typing on a phone may be part of the drop-off (unconfirmed). A mic button on each Notes box using the browser's built-in dictation would cut typing without any AI cost.",
+    "effort": "M",
+    "owner": "Construction",
+    "source": {
+     "title": "CompanyCam AI User Guide: Quick Caption and Walkthrough Note",
+     "url": "https://companycam.com/resources/user-guides/ai"
+    },
+    "before": "Type every note on the phone keyboard while holding the camera",
+    "after": "Tap the mic, say 'water shutoff behind the furnace, red handle', words appear in Notes, edit if needed"
+   },
+   {
+    "id": "2026-10-13-3",
+    "date": "2026-10-13",
+    "title": "Missed Words Come Back Sooner",
+    "app": "Thai Vocab Quiz",
+    "format": "steps",
+    "why": "The quiz now has 94 active words and a Known Words list, but every word gets the same turn. FSRS is the free, open-source scheduler that Anki-style apps use: each answer moves a word's next review date, so missed words return within minutes and easy ones fade out for days. ts-fsrs is an MIT-licensed JavaScript version that can run in the page and save progress in the browser, so no server is needed. It's Max's own app, so it could ship as soon as he says yes.",
+    "effort": "M",
+    "owner": "Thai",
+    "source": {
+     "title": "open-spaced-repetition/ts-fsrs (GitHub)",
+     "url": "https://github.com/open-spaced-repetition/ts-fsrs"
+    },
+    "steps": [
+     "Each word gets a small review record saved on the phone",
+     "After each answer, rate it Again, Hard, Good or Easy (or auto-rate from right or wrong)",
+     "The app shows 'Due today: 12 words' and quizzes those first",
+     "Missed words reappear in the same session; known words drift to weeks out",
+     "Share button sends the due count and hardest words to Thai"
+    ]
+   },
+   {
+    "id": "2026-10-13-4",
+    "date": "2026-10-13",
+    "title": "Address Suggestions on the First Step",
+    "app": "Smart Upkeep",
+    "format": "beforeafter",
+    "why": "Step 1 of the Smart Upkeep funnel is a free-text 'Address or ZIP' box that pulls the ZIP out with a pattern match and warns if it's outside metro Detroit. Baymard's checkout testing found typed addresses cause frequent errors that slow or stop people, that live address suggestions were the best-performing fix, and that 55% of sites still don't offer them. Suggestions would give a clean ZIP for the service-area check and a verified service address for later steps. It needs an address lookup service (for example Google Places), which has usage costs, so Up Keep should price that first.",
+    "effort": "M",
+    "owner": "Up Keep",
+    "source": {
+     "title": "Baymard: Provide Fully Automatic Address Lookup",
+     "url": "https://baymard.com/research-articles/automatic-address-lookup"
+    },
+    "before": "Type '123 Main St, Novi' or a ZIP; the app guesses the ZIP from the text",
+    "after": "Type '123 Ma...', pick the suggested full address, and see 'In our service area' right away"
+   }
+  ]
+ },
+ {
   "date": "2026-10-12-upkeep",
   "label": "Smart Upkeep Deep Dive",
   "ideas": [
