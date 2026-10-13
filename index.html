@@ -2,7 +2,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Khand:wght@600;700&family=Hind:wght@400;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="brand-tokens.css">
 <style>
 *{box-sizing:border-box}body{margin:0;background:#fff;color:var(--mw-foreground);font-family:var(--mw-font-body)}
-main{max-width:520px;margin:0 auto;padding:16px 16px 140px}
+main{max-width:520px;margin:0 auto;padding:16px}
 h1,h2,h3{font-family:var(--mw-font-heading);font-weight:700;line-height:1.1;margin:0}h1{font-size:2.2rem}
 .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
 select,button,textarea{font:inherit}select{min-height:44px;border:1px solid var(--mw-border);border-radius:8px;padding:0 8px;background:#fff}
@@ -16,7 +16,7 @@ select,button,textarea{font:inherit}select{min-height:44px;border:1px solid var(
 .link{background:none;border:0;padding:8px 0;min-height:44px;text-decoration:underline;cursor:pointer;color:var(--mw-foreground)}
 textarea{width:100%;min-height:70px;border:1px solid var(--mw-border);border-radius:8px;padding:8px;margin-top:6px}
 .nav{display:flex;justify-content:space-between;align-items:center;margin-top:12px}.dots span{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--mw-border);margin:0 3px}.dots .on{background:var(--mw-primary)}
-.bar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--mw-border);padding:10px 16px;display:flex;justify-content:center}.bar .btn{width:100%;max-width:520px}
+.share-wrap{margin-top:28px;display:flex;justify-content:center}.share-wrap .btn{width:100%;min-height:44px}
 footer{text-align:center;font-size:.8rem;margin-top:28px}footer a{color:var(--mw-muted-text);display:inline-block}
 a{color:inherit}
 </style></head><body><main>
@@ -25,8 +25,9 @@ a{color:inherit}
 <p class="meta">From Vision · Swipe or use the arrows</p>
 <div id="slot"></div>
 <div class="nav"><button class="btn mw-hover" id="prev">← Prev</button><div class="dots" id="dots"></div><button class="btn mw-hover" id="next">Next →</button></div>
+<div class="share-wrap"><button class="btn mw-hover" id="share">Share My Votes</button></div>
 <footer><a class="mw-hover" href="https://maxweberman.com">Built by Max Weberman</a></footer>
-</main><div class="bar"><button class="btn mw-hover" id="share">Share My Votes</button></div>
+</main>
 <script>
 let days=[],d=0,i=0,open=false;const K='dailyIdeasVotes';const S=()=>JSON.parse(localStorage.getItem(K)||'{}');const W=o=>localStorage.setItem(K,JSON.stringify(o));
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
