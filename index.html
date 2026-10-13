@@ -52,4 +52,5 @@ if(navigator.share){try{await navigator.share({title:'Daily Ideas',text,url});re
 if(/iPhone|Android/i.test(navigator.userAgent)){location.href='sms:?&body='+encodeURIComponent(text+'\n'+url);return}
 try{await navigator.clipboard.writeText(text+'\n'+url);share.textContent='Copied';setTimeout(()=>share.textContent='Share My Votes',1500)}catch(e){}};
 fetch('ideas.json').then(r=>r.json()).then(j=>{days=j.sort((a,b)=>b.date.localeCompare(a.date));day.innerHTML=days.map((x,k)=>`<option value="${k}">${x.label||x.date}</option>`).join('');day.onchange=()=>{d=+day.value;i=0;render()};render()});
-</script></body></html>
+</script><script src="ptr.js" defer></script>
+</body></html>
